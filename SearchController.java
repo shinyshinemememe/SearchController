@@ -20,8 +20,7 @@ import cn.edu.bjtu.weibo.model.BaseContentSR;
 @RestController
 @RequestMapping("/s")
 public class SearchController {
-	@RequestMapping(value="/search", method=RequestMethod.GET)
-	
+	@RequestMapping(value="/generalsearch", method=RequestMethod.GET)
 	public List<GeneralSR> getGeneralSR(String keyword, int pageIndex, int numberPerPage) 
 	{
 		GeneralSearchServiceImpl searchGeneralService = new GeneralSearchServiceImpl();
@@ -29,6 +28,7 @@ public class SearchController {
 		return generalSRList;
 	}
 	
+        @RequestMapping(value="/weibosearch", method=RequestMethod.GET)
 	public List<BaseContentSR> getWeiboSR(String keyword, int pageIndex, int numberPerPage) 
 	{
 		SearchContentServiceImpl searchWeiboService = new SearchContentServiceImpl();
@@ -36,6 +36,7 @@ public class SearchController {
 		return weiboSRList;
 	}
 	
+        @RequestMapping(value="/usersearch", method=RequestMethod.GET)
 	public List<UserSR> getUserSR(String username, int pageIndex, int numberPerPage) 
 	{
 		SearchUserServiceImpl searchUserService = new SearchUserServiceImpl();
